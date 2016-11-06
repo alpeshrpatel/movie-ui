@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="angularApp">
+<head>
+    <title>Introduction to AngularJS</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <style>
+        html, body
+        {
+            font-size: 1.1em;
+        }
+    </style>
+    <!-- load angular via CDN -->
+    <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
+    <script src="./controller/indexcontoller.js"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div ng-controller="mainController">
+        <div>
+            <h1>city.com/{{city}}</h1>
+            <hr/>
+            <label>What's your city?</label>
+            <label>Enter City Name</label>
+            <input type="text" name="city" id="city"
+                   ng-model="city" ng-keyup="complete(city)" class="form-control" placeholder="City Or Pincode Or State"/>
+            <ul class="list-group" ng-model="hidethis" ng-hide="hidethis"/>
+                <li class="list-group-item" ng-repeat="citydata in filterCity" ng-click="fillTextBox(citydata)">{{citydata}}</li>
+            </ul>
+            <button ng-click="">Search</button>
+        </div>
+        <div></div>
+
+    </div>
+</div>
+
+</body>
+</html>
